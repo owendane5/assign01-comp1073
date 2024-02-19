@@ -82,11 +82,8 @@ header h1 {
     text-align: center;
     transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    :hover {
-        background: #f4f4f4;
-    }
-
 }
+
 
 #choiceColumns {
     display: flex;
