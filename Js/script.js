@@ -40,7 +40,7 @@ document.getElementById('choiceOneSelect').addEventListener('click', function ()
     choiceOneIndex = cycleChoices(firstChoices, choiceOneIndex, lastSelectedOne);
 });
 
-document.getElementById('choiceTwoSelect').addEventListener('click', function () {
+document.getElementById("choiceTwoSelect").addEventListener('click', function () {
     lastSelectedTwo = secondChoices[choiceTwoIndex];
     choiceTwoIndex = cycleChoices(secondChoices, choiceTwoIndex, lastSelectedTwo);
 });
