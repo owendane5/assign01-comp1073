@@ -19,11 +19,11 @@ let choiceFiveIndex = 0;
 
 //this is the function that will take the parameters thelist for all choices in the lists, index for current index in the list, and lastchoice for last selected choice
 function cycleChoices(theLists, index, lastChoice) {
-   //getting html element
+    //getting html element
     const selectedChoice = document.getElementById('selectedChoice').querySelector('p');
-   //here i am getting the string based on the index 
+    //here i am getting the string based on the index 
     const currentChoice = theLists[index];
-   //updating my html with last selected 
+    //updating my html with last selected 
     selectedChoice.textContent = `> ${currentChoice}`;
     // here we can cycle through the array and use % to restart to loop at 0 index.  Thank you mdn :)
     index = (index + 1) % theLists.length;
@@ -33,5 +33,47 @@ function cycleChoices(theLists, index, lastChoice) {
 // Here i am selecting the select button inside of my  html by using id tags with js getElementById
 //Am i then using event listener for the click 
 //and then i am passing my function which will return a updats number for my variables
+//then im assigning the index to lastSelected
+//im then calling my cyclechoices function with the correct parameters to update. 
+document.getElementById('choiceOneSelect').addEventListener('click', function () {
+    lastSelectedOne = firstChoices[choiceOneIndex];
+    choiceOneIndex = cycleChoices(firstChoices, choiceOneIndex, lastSelectedOne);
+});
+
+document.getElementById('choiceTwoSelect').addEventListener('click', function () {
+    lastSelectedTwo = secondChoices[choiceTwoIndex];
+    choiceTwoIndex = cycleChoices(secondChoices, choiceTwoIndex, lastSelectedTwo);
+});
+
+document.getElementById('choiceThreeSelect').addEventListener('click', function () {
+    lastSelectedThree = thirdChoices[choiceThreeIndex];
+    choiceThreeIndex = cycleChoices(thirdChoices, choiceThreeIndex, lastSelectedThree);
+});
+
+document.getElementById('choiceFourSelect').addEventListener('click', function () {
+    lastSelectedFour = fourthChoices[choiceFourIndex];
+    choiceFourIndex = cycleChoices(fourthChoices, choiceFourIndex, lastSelectedFour);
+});
+
+document.getElementById('choiceFiveSelect').addEventListener('click', function () {
+    lastSelectedFive = fifthChoices[choiceFiveIndex];
+    choiceFiveIndex = cycleChoices(fifthChoices, choiceFiveIndex, lastSelectedFive);
+});
+
+// Function to display the final story
+function fullStory() {
+    const finalStory = document.getElementById('finalWords').querySelector('p');
+
+    // Combine last choices to make story
+    const finalWords = `${lastSelectedOne} ${lastSelectedTwo} ${lastSelectedThree} ${lastSelectedFour} ${lastSelectedFive}`;
+
+    // final
+    finalStory.textContent = finalWords;
+   
+}
+
+// for playback button
+document.getElementById('playbackBtn').addEventListener('click', fullStory);
+
 
 
